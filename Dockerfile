@@ -13,6 +13,8 @@ COPY . .
 # Build the Go application
 RUN go build -o main .
 
+# Use distroless as minimal base image to package the application
+
 FROM gcr.io/distroless/base
 
 COPY --from=build /app/main .
